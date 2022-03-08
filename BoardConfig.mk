@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The TwrpBuilder Open-Source Project
+# Copyright (C) 2022 TeamWin Recovery Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,50 +14,51 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/j1pop3gjv
+LOCAL_PATH := device/samsung/j1pop3g
 
-TARGET_BOARD_PLATFORM := SC7727S
-TARGET_BOOTLOADER_BOARD_NAME := j1pop3gjv
+# Platform
+TARGET_ARCH                  := arm
+TARGET_BOARD_PLATFORM        := sc8830
+TARGET_BOARD_PLATFORM_GPU    := mali-400
+TARGET_CPU_ABI               := armeabi-v7a
+TARGET_CPU_ABI2              := armeabi
+TARGET_ARCH_VARIANT          := armv7-a
+TARGET_CPU_VARIANT           := cortex-a7
+TARGET_BOOTLOADER_BOARD_NAME := sc7727s
 
-# Recovery
-TARGET_USERIMAGES_USE_EXT4 := true
-#BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
-BOARD_FLASH_BLOCK_SIZE := 0
-BOARD_HAS_NO_REAL_SDCARD := true
-BOARD_SUPPRESS_SECURE_ERASE := true
-BOARD_HAS_NO_MISC_PARTITION := true
-BOARD_RECOVERY_SWIPE := true
-BOARD_USES_MMCUTILS := true
-TW_HAS_DOWNLOAD_MODE := true
+# Bootloader
+TW_HAS_DOWNLOAD_MODE    := true
 TW_NO_REBOOT_BOOTLOADER := true
-BOARD_SUPPRESS_EMMC_WIPE := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := j1pop3g,j1pop3gjv,SM-J110H
+
+# Filesystem
+TARGET_USERIMAGES_USE_EXT4  := true
+BOARD_USES_MMCUTILS         := true
+BOARD_SUPPRESS_EMMC_WIPE    := true
+BOARD_SUPPRESS_SECURE_ERASE := true
+BOARD_HAS_NO_REAL_SDCARD    := true
+RECOVERY_SDCARD_ON_DATA     := true
+BOARD_HAS_NO_MISC_PARTITION := true
+BOARD_FLASH_BLOCK_SIZE      := 0
 
 # Kernel
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
-BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 androidboot.selinux=permissive
-BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(LOCAL_PATH)/dt.img
+TARGET_PREBUILT_KERNEL   := $(LOCAL_PATH)/prebuilt/zImage
+TARGET_PREBUILT_DTB      := $(LOCAL_PATH)/prebuilt/dtb
+BOARD_KERNEL_CMDLINE     := console=ttyS1,115200n8
+BOARD_KERNEL_BASE        := 0x00000000
+BOARD_KERNEL_OFFSET      := 0x00008000
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+BOARD_KERNEL_PAGESIZE    := 2048
+BOARD_MKBOOTIMG_ARGS   := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(LOCAL_PATH)/prebuilt/dtb
 
-# Architecture
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-ifneq ($(filter msm8974 msm8227 msm8627 msm8230 apq8030 msm8630 msm8930 msm8930AA apq8060A msm8260A msm8660A msm8960 MPQ8064 msm8674 msm8274 apq8084,$(TARGET_BOARD_PLATFORM)),)
-TARGET_CPU_VARIANT := krait
-TARGET_RECOVERY_QCOM_RTC_FIX := true
-else 
-TARGET_CPU_VARIANT := cortex-a7
-endif
-
-# TWRP
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
-ifeq ($(TW_THEME),)
-TW_THEME := portrait_hdpi
-endif
-RECOVERY_SDCARD_ON_DATA := true
+# Display & Graphics
+TW_THEME                         := portrait_hdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 
-
+# TWRP
+BOARD_RECOVERY_SWIPE    := true
+TW_INPUT_BLACKLIST      := "hbtp_vm"
+TW_EXCLUDE_TWRPAPP      := true
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone1/temp"

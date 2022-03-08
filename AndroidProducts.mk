@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The TwrpBuilder Open-Source Project
+# Copyright (C) 2022 TeamWin Recovery Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,6 +14,6 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/j1pop3gjv/
+LOCAL_PATH := device/samsung/j1pop3g
 
-PRODUCT_MAKEFILES := $(LOCAL_PATH)/omni_j1pop3gjv.mk
+PRODUCT_MAKEFILES := $(LOCAL_PATH)/omni_j1pop3g.mk

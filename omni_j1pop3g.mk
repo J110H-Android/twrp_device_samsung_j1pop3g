@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The TwrpBuilder Open-Source Project
+# Copyright (C) 2022 TeamWin Recovery Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,9 +14,15 @@
 # limitations under the License.
 #
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-PRODUCT_DEVICE := j1pop3gjv
-PRODUCT_NAME := omni_j1pop3gjv
-PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-J110H
+$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, build/target/product/embedded.mk)
+
+$(call inherit-product, build/target/product/full_base_telephony.mk)
+$(call inherit-product, build/target/product/languages_small.mk)
+
+PRODUCT_DEVICE       := j1pop3g
+PRODUCT_NAME         := omni_j1pop3g
+PRODUCT_BRAND        := samsung
+PRODUCT_MODEL        := SM-J110H
 PRODUCT_MANUFACTURER := samsung
+BOARD_VENDOR         := samsung

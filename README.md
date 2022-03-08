@@ -1,4 +1,4 @@
-Device Tree For Samsung Galaxy J1 Ace
+TWRP device tree for Samsung Galaxy J1 Ace
 =================================================
 
 Basic   | Spec Sheet

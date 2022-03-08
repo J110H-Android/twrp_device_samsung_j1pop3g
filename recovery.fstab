@@ -1,0 +1,31 @@
+#
+# Copyright (C) 2022 TeamWin Recovery Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# mount point    fstype    device        [device2]
+
+/boot           emmc      /dev/block/platform/sprd-sdhci.3/by-name/KERNEL      flags=display="Boot";backup=1;flashimg=1
+/cache          ext4      /dev/block/platform/sprd-sdhci.3/by-name/CSC         flags=display="Cache";canbewiped;wipeingui;wipeduringfactoryreset
+/data           ext4      /dev/block/platform/sprd-sdhci.3/by-name/USERDATA    flags=display="Data";length=-16384;backup=1;canbewiped;wipeingui;wipeduringfactoryreset
+/efs            ext4      /dev/block/platform/sprd-sdhci.3/by-name/EFS         flags=display="EFS";backup=1
+/modemcp        emmc      /dev/block/platform/sprd-sdhci.3/by-name/MODEM       flags=display="SPRD Modem CP";backup=1
+/modemdsp       emmc      /dev/block/platform/sprd-sdhci.3/by-name/WDSP        flags=display="SPRD Modem DSP";backup=1
+/preload        ext4      /dev/block/platform/sprd-sdhci.3/by-name/HIDDEN      flags=display="Preload";wipeingui;backup=1
+/productinfo    ext4      /dev/block/platform/sprd-sdhci.3/by-name/PRODNV      flags=display="Product Info";backup=1
+/recovery       emmc      /dev/block/platform/sprd-sdhci.3/by-name/RECOVERY    flags=display="Recovery";flashimg=1
+/system         ext4      /dev/block/platform/sprd-sdhci.3/by-name/SYSTEM      flags=display="System";backup=1;canbewiped;wipeingui
+
+/external_sd    vfat      /dev/block/mmcblk1p1                                 flags=display="Micro SDcard";storage;wipeingui;removable
+/usb-otg        vfat      /dev/block/sda1         /dev/block/sda               flags=display="USB-OTG";storage;wipeingui;removable

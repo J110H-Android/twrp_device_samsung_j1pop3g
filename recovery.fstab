@@ -19,11 +19,6 @@
 /boot           emmc      /dev/block/platform/sprd-sdhci.3/by-name/KERNEL      flags=display="Boot";backup=1;flashimg=1
 /cache          ext4      /dev/block/platform/sprd-sdhci.3/by-name/CSC         flags=display="Cache";canbewiped;wipeingui;wipeduringfactoryreset
 /data           ext4      /dev/block/platform/sprd-sdhci.3/by-name/USERDATA    flags=display="Data";length=-16384;backup=1;canbewiped;wipeingui;wipeduringfactoryreset
-/efs            ext4      /dev/block/platform/sprd-sdhci.3/by-name/EFS         flags=display="EFS";backup=1
-/modemcp        emmc      /dev/block/platform/sprd-sdhci.3/by-name/MODEM       flags=display="SPRD Modem CP";backup=1
-/modemdsp       emmc      /dev/block/platform/sprd-sdhci.3/by-name/WDSP        flags=display="SPRD Modem DSP";backup=1
-/preload        ext4      /dev/block/platform/sprd-sdhci.3/by-name/HIDDEN      flags=display="Preload";wipeingui;backup=1
-/productinfo    ext4      /dev/block/platform/sprd-sdhci.3/by-name/PRODNV      flags=display="Product Info";backup=1
 /recovery       emmc      /dev/block/platform/sprd-sdhci.3/by-name/RECOVERY    flags=display="Recovery";flashimg=1
 /system         ext4      /dev/block/platform/sprd-sdhci.3/by-name/SYSTEM      flags=display="System";backup=1;canbewiped;wipeingui
 

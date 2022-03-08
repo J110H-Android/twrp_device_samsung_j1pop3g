@@ -15,8 +15,8 @@
 #
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-PRODUCT_DEVICE := vivalto5mve3g
-PRODUCT_NAME := omni_vivalto5mve3g
+PRODUCT_DEVICE := j1pop3gjv
+PRODUCT_NAME := omni_j1pop3gjv
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-G316HU
+PRODUCT_MODEL := SM-J110H
 PRODUCT_MANUFACTURER := samsung

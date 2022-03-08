@@ -1,16 +1,17 @@
-TWRP device tree for Samsung Galaxy J1 Ace
-=================================================
+# TWRP device tree for Samsung Galaxy J1 ace DUOS
 
-Basic   | Spec Sheet
--------:|:-------------------------
-CPU     | Quad-core 1.2 GHz Cortex-A7
-CHIPSET | SC8830
-GPU     | Mali-400MP2
-Memory  | 1GB RAM
-Shipped Android Version | 4.4
-Storage | 8GB
-Battery | 1850 mAh
-Display | 4.3"
-Camera  | 5 MP
+## `WORK IN PROGRESS. WILL EAT YOUR CAT.`
 
-This branch is for building TWRP/CyanogenMod 11 Firmware.
+## Specifications
+
+Basic                   | Specification
+-----------------------:|:-------------------------
+CPU                     | Dual-core 1.2 GHz Cortex-A7
+Chipset                 | SC7727S
+GPU                     | Mali-400
+Memory                  | 1GB RAM
+Shipped Android Version | 4.4.4
+Storage                 | 3GB
+Battery                 | 1800 mAh
+Display                 | 4.3"
+Camera                  | 5 MP

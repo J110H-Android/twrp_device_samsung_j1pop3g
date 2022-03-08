@@ -14,5 +14,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo omni_vivalto5mve3g-eng
+add_lunch_combo omni_j1pop3g-eng
 

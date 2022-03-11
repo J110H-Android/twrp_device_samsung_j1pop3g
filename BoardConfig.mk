@@ -25,6 +25,7 @@ TARGET_CPU_ABI2              := armeabi
 TARGET_ARCH_VARIANT          := armv7-a
 TARGET_CPU_VARIANT           := cortex-a7
 TARGET_BOOTLOADER_BOARD_NAME := sc7727s
+BOARD_VENDOR                 := samsung
 
 # Bootloader
 TW_HAS_DOWNLOAD_MODE    := true

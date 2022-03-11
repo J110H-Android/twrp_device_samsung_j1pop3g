@@ -25,4 +25,3 @@ PRODUCT_NAME         := omni_j1pop3g
 PRODUCT_BRAND        := samsung
 PRODUCT_MODEL        := SM-J110H
 PRODUCT_MANUFACTURER := samsung
-BOARD_VENDOR         := samsung

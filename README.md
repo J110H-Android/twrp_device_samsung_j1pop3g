@@ -19,4 +19,4 @@ It was released in October 2015.
 | Front camera            | 2 MP, No flash                                                |
 | Shipped Android Version | 4.4.4                                                         |
 
-<img src="https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j1-ace1.jpg" width="50%">
+<img src="https://user-images.githubusercontent.com/67373913/157935867-a2be4413-6fcc-43ac-a50b-73a1af308c08.png" width="50%">

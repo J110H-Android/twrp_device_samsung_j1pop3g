@@ -1,17 +1,22 @@
-# TWRP device tree for Samsung Galaxy J1 ace DUOS
+# Device Tree for Samsung Galaxy J1 ace DUOS (j1pop3g)
 
-## `WORK IN PROGRESS. WILL EAT YOUR CAT.`
+Copyright 2022, TeamWin Recovery Project
 
-## Specifications
+The Samsung Galaxy J1 ace DUOS (codenamed _"j1pop3g"_) is a budget smartphone from Samsung.
+It was released in October 2015.
 
-Basic                   | Specification
------------------------:|:-------------------------
-CPU                     | Dual-core 1.2 GHz Cortex-A7
-Chipset                 | SC7727S
-GPU                     | Mali-400
-Memory                  | 1GB RAM
-Shipped Android Version | 4.4.4
-Storage                 | 3GB
-Battery                 | 1800 mAh
-Display                 | 4.3"
-Camera                  | 5 MP
+|                   Basic | Spec Sheet                                                    |
+| ----------------------: | :------------------------------------------------------------ |
+| Chipset                 | Spreadtrum SC7727S                                            |
+| CPU                     | Dual-core 1.2 GHz Cortex-A7                                   |
+| GPU                     | Mali-400                                                      |
+| RAM                     | 512 MB                                                        |
+| Storage                 | 4 GB                                                          |
+| Battery                 | Li-Ion 1800 mAh                                               |
+| Dimensions              | 130.1 x 67.6 x 9.5 mm                                         |
+| Display                 | Super AMOLED, 480 x 800 pixels, 4.3 inches (~217 ppi density) |
+| Rear camera             | 5 MP, (f/2.2, 31mm (standard), AF), LED flash                 |
+| Front camera            | 2 MP, No flash                                                |
+| Shipped Android Version | 4.4.4                                                         |
+
+<img src="https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j1-ace1.jpg" width="50%">

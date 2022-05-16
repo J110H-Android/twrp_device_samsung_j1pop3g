@@ -53,7 +53,8 @@ BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_OFFSET      := 0x00008000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_KERNEL_PAGESIZE    := 2048
-BOARD_MKBOOTIMG_ARGS   := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(LOCAL_PATH)/prebuilt/dtb
+BOARD_MKBOOTIMG_ARGS     := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(LOCAL_PATH)/prebuilt/dtb
+BOARD_CUSTOM_BOOTIMG_MK  := $(LOCAL_PATH)/sprd_bootimg.mk
 
 # Display & Graphics
 TW_THEME                         := portrait_hdpi

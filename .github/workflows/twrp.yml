@@ -19,7 +19,7 @@ jobs:
       - name: Installing JDK 7 + Build Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install
+          sudo apt-get install \
             adb autoconf automake axel bc bison build-essential \
             ccache clang cmake expat fastboot flex g++ \
             g++-multilib gawk gcc gcc-multilib git gnupg gperf \

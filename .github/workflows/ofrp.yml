@@ -32,12 +32,11 @@ jobs:
         run: |
           mkdir ~/OFRP
           cd ~/OFRP
-
           mkdir ~/.bin
           curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
           python3 ~/.bin/repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b ${{ env.BRANCH }}
           mkdir -p ~/OFRP/.repo/local_manifests
-          curl https://gist.github.com/TriDiscord/d1da09e8c4d896db7c57540f2470f863/raw --output ~/OFRP/.repo/local_manifests
+          curl https://gist.github.com/TriDiscord/d1da09e8c4d896db7c57540f2470f863/raw --output ~/OFRP/.repo/local_manifests/orangefox_5.1.xml
           python3 ~/.bin/repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
           git clone --branch ${{ env.BRANCH }} --single-branch https://github.com/J110H-Android/twrp_device_${{ env.OEM }}_${{ env.DEVICE }}.git ~/OFRP/device/${{ env.OEM }}/${{ env.DEVICE }}
 

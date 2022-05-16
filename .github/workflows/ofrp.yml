@@ -19,9 +19,9 @@ jobs:
       - name: Installing build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install zip gcc-multilib g++-multilib \
-            libc6-dev-i386 lib32ncurses5-dev lib32z1-dev \
-            libgl1-mesa-dev libxml2-utils xsltproc schedtool axel
+          sudo apt-get install lib32z1-dev gcc-multilib g++-multilib \
+            libc6-dev-i386 lib32ncurses5-dev zip libssl-dev axel \
+            libgl1-mesa-dev libxml2-utils xsltproc schedtool
           mkdir ~/.jdk_7
           cd ~/.jdk_7
           axel -q -n $(nproc --all) https://download.java.net/openjdk/jdk7u75/ri/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz
@@ -52,7 +52,6 @@ jobs:
           export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
           export LC_ALL=C
           export OF_LEGACY_SHAR512=1
-          export OF_LEGACY_SHA512=1
           lunch omni_${{ env.DEVICE }}-eng
           make -j$(nproc --all) recoveryimage
           export PATH=$OLDPATH

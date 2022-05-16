@@ -52,6 +52,7 @@ jobs:
           export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
           export LC_ALL=C
           export OF_LEGACY_SHAR512=1
+          export OF_LEGACY_SHA512=1
           lunch omni_${{ env.DEVICE }}-eng
           make -j$(nproc --all) recoveryimage
           export PATH=$OLDPATH

@@ -1,8 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
 FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar
-INSHEAD := $(LOCAL_PATH)/insertheader/prebuilt/bin/imgheaderinsert
-SIGNEDIMG ?= $(PRODUCT_OUT)/recovery-sign.img
 SPRDSIGN := $(LOCAL_PATH)/signimage/prebuilt/bin/sprd_sign
 SPRDSIGNCFG := $(LOCAL_PATH)/signimage/config
 
@@ -15,8 +13,6 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) $(re
 	$(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) $(BOARD_MKBOOTIMG_ARGS) --output $@ --ramdisk $(recovery_ramdisk)
 	@echo -e ${CL_CYN}"Made recovery image: $@"${CL_RST}
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
-	$(hide) $(INSHEAD) $(INSTALLED_RECOVERYIMAGE_TARGET) 1
-	$(hide) mv $(SIGNEDIMG) $(INSTALLED_RECOVERYIMAGE_TARGET)
 	$(hide) $(SPRDSIGN) $(INSTALLED_RECOVERYIMAGE_TARGET) $(SPRDSIGNCFG)
 	$(hide) tar -C $(PRODUCT_OUT) -H ustar -c recovery.img > $(FLASH_IMAGE_TARGET)
 	@echo -e ${CL_CYN}"Made Odin flashable recovery tar: ${FLASH_IMAGE_TARGET}"${CL_RST}

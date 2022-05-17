@@ -44,7 +44,6 @@ BOARD_SUPPRESS_SECURE_ERASE        := true
 BOARD_HAS_NO_REAL_SDCARD           := true
 RECOVERY_SDCARD_ON_DATA            := true
 BOARD_HAS_NO_MISC_PARTITION        := true
-TW_INCLUDE_CRYPTO                  := true
 
 # Kernel
 TARGET_PREBUILT_KERNEL   := $(LOCAL_PATH)/prebuilt/zImage

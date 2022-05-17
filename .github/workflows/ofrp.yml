@@ -25,7 +25,7 @@ jobs:
             g++-multilib gawk gcc gcc-multilib git gnupg gperf \
             htop imagemagick lib32ncurses5-dev lib32z1-dev libtinfo5 libc6-dev libcap-dev \
             libexpat1-dev libgmp-dev '^liblz4-.*' '^liblzma.*' libmpc-dev libmpfr-dev libncurses5-dev \
-            libsdl1.2-dev libssl-dev libtool libxml2 libxml2-utils '^lzma.*' lzop \
+            libsdl1.2-dev libssl-dev libssl1.0-dev libtool libxml2 libxml2-utils '^lzma.*' lzop \
             maven ncftp ncurses-dev patch patchelf pkg-config pngcrush \
             pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion \
             texinfo unzip w3m xsltproc zip zlib1g-dev lzip \
@@ -36,7 +36,6 @@ jobs:
           cd ~/.jdk_7
           axel -q -n $(nproc --all) https://download.java.net/openjdk/jdk7u75/ri/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz
           tar -xzf openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz
-          sudo ln -f -s /usr/bin/python2.7 /usr/bin/python
 
       - name: Syncing OFRP sources
         run: |

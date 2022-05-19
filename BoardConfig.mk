@@ -63,3 +63,6 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 # TWRP
 BOARD_RECOVERY_SWIPE    := true
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone1/temp"
+
+# OrangeFox
+LOCAL_CPP_INCLUDES += external/openssl/include

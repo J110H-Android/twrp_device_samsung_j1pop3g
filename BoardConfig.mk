@@ -65,4 +65,7 @@ BOARD_RECOVERY_SWIPE    := true
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone1/temp"
 
 # OrangeFox
-LOCAL_CPP_INCLUDES += external/openssl/include
+LOCAL_C_INCLUDES := $(filter-out external/boringssl/include,$(LOCAL_C_INCLUDES))
+LOCAL_C_INCLUDES := $(filter-out external/libcxx/include,$(LOCAL_C_INCLUDES))
+LOCAL_C_INCLUDES += external/stlport/stlport external/openssl/include
+LOCAL_CFLAGS += -DUSE_FUSE_SIDELOAD22

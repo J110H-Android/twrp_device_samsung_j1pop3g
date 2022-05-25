@@ -69,3 +69,7 @@ LOCAL_C_INCLUDES := $(filter-out external/boringssl/include,$(LOCAL_C_INCLUDES))
 LOCAL_C_INCLUDES := $(filter-out external/libcxx/include,$(LOCAL_C_INCLUDES))
 LOCAL_C_INCLUDES += external/stlport/stlport external/openssl/include
 LOCAL_CFLAGS += -DUSE_FUSE_SIDELOAD22
+LOCAL_CPP_INCLUDES := $(filter-out external/boringssl/include,$(LOCAL_CPP_INCLUDES))
+LOCAL_CPP_INCLUDES := $(filter-out external/libcxx/include,$(LOCAL_CPP_INCLUDES))
+LOCAL_CPP_INCLUDES += external/stlport/stlport external/openssl/include
+LOCAL_CPPFLAGS += -DUSE_FUSE_SIDELOAD22

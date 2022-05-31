@@ -65,4 +65,4 @@ BOARD_RECOVERY_SWIPE    := true
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone1/temp"
 
 # OrangeFox
-LOCAL_CPPFLAGS += -std=c++11 -D_GLIBCXX_USE_C99
+LOCAL_CPPFLAGS += -std=c++11

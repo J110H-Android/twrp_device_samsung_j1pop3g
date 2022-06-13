@@ -11,7 +11,7 @@ jobs:
     env:
       OEM: samsung
       DEVICE: j1pop3g
-      BRANCH: twrp-5.1
+      BRANCH: twrp-6.0
 
     steps:
       - uses: actions/checkout@v2
@@ -22,12 +22,6 @@ jobs:
           sudo apt-get install zip gcc-multilib g++-multilib \
             libc6-dev-i386 lib32ncurses5-dev lib32z1-dev \
             libgl1-mesa-dev libxml2-utils xsltproc schedtool axel
-
-          mkdir ~/.jdk_7
-          cd ~/.jdk_7
-          axel -q -n $(nproc --all) https://download.java.net/openjdk/jdk7u75/ri/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz
-          tar -xzf openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz
-          sudo ln -f -s /usr/bin/python2.7 /usr/bin/python
 
       - name: Syncing TWRP sources
         run: |
@@ -43,18 +37,12 @@ jobs:
 
       - name: Building TWRP
         run: |
-          OLDPATH=$PATH
-          OLDJAVAHOME=$JAVA_HOME
-          export PATH="$HOME/.jdk_7/java-se-7u75-ri/bin:$PATH"
-          export JAVA_HOME="$HOME/.jdk_7/java-se-7u75-ri"
           cd ~/TWRP
           source build/envsetup.sh
           export ALLOW_MISSING_DEPENDENCIES=true
           export LC_ALL=C
           lunch omni_${{ env.DEVICE }}-eng
           make -j$(nproc --all) recoveryimage
-          export PATH=$OLDPATH
-          export JAVA_HOME=$OLDJAVAHOME
 
       - name: Uploading TWRP builds
         uses: actions/upload-artifact@v2

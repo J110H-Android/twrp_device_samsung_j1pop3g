@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Installing JDK 7 + Build Dependencies
+      - name: Installing build dependencies
         run: |
           sudo apt-get update
           sudo apt-get install zip gcc-multilib g++-multilib \

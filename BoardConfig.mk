@@ -67,3 +67,6 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_THEME                := portrait_hdpi
 TW_INCLUDE_CRYPTO       := true
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone1/temp"
+
+# OrangeFox
+OF_FL_PATH1 := /sys/devices/virtual/camera/rear/rear_flash

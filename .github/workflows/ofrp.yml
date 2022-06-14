@@ -47,5 +47,5 @@ jobs:
       - name: Uploading OFRP builds
         uses: actions/upload-artifact@v2
         with:
-          name: twrp
+          name: ofrp
           path: /home/runner/OFRP/out/target/product/${{ env.DEVICE }}/recovery.*

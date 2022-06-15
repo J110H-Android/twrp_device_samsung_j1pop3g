@@ -17,6 +17,7 @@
 export OF_MAINTAINER="J110H-Android"
 export OF_MAINTAINER_AVATAR="$(readlink -f $( dirname -- '$0'; ))/orangefox/maintainer.png"
 export OF_FL_PATH1="/sys/devices/virtual/camera/rear/rear_flash"
+export OF_FL_PATH2=$OF_FL_PATH1
 export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
 
 add_lunch_combo omni_j1pop3g-eng

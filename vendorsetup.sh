@@ -15,7 +15,7 @@
 #
 
 export OF_MAINTAINER="J110H-Android"
-export OF_MAINTAINER_AVATAR="$(readlink -f $( dirname -- '$0'; ))/maintainer.png"
+export OF_MAINTAINER_AVATAR="$(readlink -f $( dirname -- '$0'; ))/orangefox/maintainer.png"
 export OF_FL_PATH1="/sys/devices/virtual/camera/rear/rear_flash"
 export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
 

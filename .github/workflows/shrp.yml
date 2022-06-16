@@ -35,6 +35,7 @@ jobs:
           git clone --branch ${{ env.BRANCH }} --single-branch https://github.com/J110H-Android/twrp_device_${{ env.OEM }}_${{ env.DEVICE }}.git ~/SHRP/device/${{ env.OEM }}/${{ env.DEVICE }}
           # Manifest isn't working for now, so manually sync SHRP
           rm -rf bootable/recovery
+          rm -rf external/magisk-prebuilt
           git clone --depth=1 --single-branch --branch android-9.0 https://github.com/SHRP/bootable_recovery.git bootable/recovery
           git clone --depth=1 --single-branch --branch v3 https://github.com/SHRP/android_vendor_shrp.git vendor/shrp
           git clone --depth=1 --single-branch --branch android-9.0 https://github.com/SHRP/android_system_update_engine.git system/update_engine

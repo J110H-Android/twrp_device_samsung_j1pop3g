@@ -37,6 +37,9 @@ jobs:
         run: |
           cd ~/OFRP
           source build/envsetup.sh
+          curl https://avatars.githubusercontent.com/u/99538268 --output - > /home/runner/maintainer.png
+          export OF_MAINTAINER="J110H-Android"
+          export OF_MAINTAINER_AVATAR="/home/runner/maintainer.png"
           export ALLOW_MISSING_DEPENDENCIES=true
           export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
           export LC_ALL=C

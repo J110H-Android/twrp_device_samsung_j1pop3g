@@ -41,6 +41,7 @@ BOARD_FLASH_BLOCK_SIZE             := 1024
 TARGET_USERIMAGES_USE_EXT4         := true
 BOARD_HAS_NO_REAL_SDCARD           := true
 RECOVERY_SDCARD_ON_DATA            := true
+BOARD_CUSTOM_BOOTIMG_MK            := $(LOCAL_PATH)/mkbootimg.mk
 
 # Kernel
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/zImage

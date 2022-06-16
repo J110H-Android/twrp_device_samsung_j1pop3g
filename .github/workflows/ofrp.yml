@@ -20,8 +20,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install zip gcc-multilib g++-multilib \
-            libc6-dev-i386 lib32ncurses5-dev lib32z1-dev \
-            libgl1-mesa-dev libxml2-utils xsltproc schedtool axel
+            libc6-dev-i386 lib32ncurses5-dev imagemagick axel \
+            libgl1-mesa-dev libxml2-utils xsltproc schedtool lib32z1-dev
 
       - name: Syncing OFRP sources
         run: |
@@ -38,6 +38,7 @@ jobs:
           cd ~/OFRP
           source build/envsetup.sh
           curl https://avatars.githubusercontent.com/u/99538268 --output - > /home/runner/maintainer.png
+          convert /home/runner/maintainer.png -resize 128x128 /home/runner/maintainer.png
           export OF_MAINTAINER="J110H-Android"
           export OF_MAINTAINER_AVATAR="/home/runner/maintainer.png"
           export ALLOW_MISSING_DEPENDENCIES=true

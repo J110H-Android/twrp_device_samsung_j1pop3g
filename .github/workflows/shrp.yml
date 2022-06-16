@@ -40,6 +40,7 @@ jobs:
           git clone --depth=1 --single-branch --branch v3 https://github.com/SHRP/android_vendor_shrp.git vendor/shrp
           git clone --depth=1 --single-branch --branch android-9.0 https://github.com/SHRP/android_system_update_engine.git system/update_engine
           git clone --depth=1 --single-branch --branch android-9.0 https://github.com/SHRP/external_magisk-prebuilt.git external/magisk-prebuilt
+          curl https://gist.githubusercontent.com/TriDiscord/fa710c2692f1853fcb1850f04935569d/raw > external/libcxx/include/langinfo.h
 
       - name: Building SHRP
         run: |

@@ -31,9 +31,14 @@ jobs:
           curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
           python3 ~/.bin/repo init -b ${{ env.BRANCH }} --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git
           mkdir -p .repo/local_manifests
-          curl https://gist.githubusercontent.com/TriDiscord/6193588530cdbd7c55a0775b70e28bb6/raw > .repo/local_manifests/shrp.xml
           python3 ~/.bin/repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
           git clone --branch ${{ env.BRANCH }} --single-branch https://github.com/J110H-Android/twrp_device_${{ env.OEM }}_${{ env.DEVICE }}.git ~/SHRP/device/${{ env.OEM }}/${{ env.DEVICE }}
+          # Manifest isn't working for now, so manually sync SHRP
+          rm -rf bootable/recovery
+          git clone --depth=1 --single-branch --branch android-9.0 https://github.com/SHRP/bootable_recovery.git bootable/recovery
+          git clone --depth=1 --single-branch --branch v3 https://github.com/SHRP/android_vendor_shrp.git vendor/shrp
+          git clone --depth=1 --single-branch --branch android-9.0 https://github.com/SHRP/android_system_update_engine.git system/update_engine
+          git clone --depth=1 --single-branch --branch android-9.0 https://github.com/SHRP/external_magisk-prebuilt.git external/magisk-prebuilt
 
       - name: Building SHRP
         run: |

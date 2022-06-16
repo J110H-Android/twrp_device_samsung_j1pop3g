@@ -37,6 +37,7 @@ jobs:
           rm -rf bootable/recovery
           rm -rf external/magisk-prebuilt
           rm -rf build
+          rm Makefile
           git clone --depth=1 --single-branch --branch android-9.0 https://github.com/SHRP/bootable_recovery.git bootable/recovery
           git clone --depth=1 --single-branch --branch v3 https://github.com/SHRP/android_vendor_shrp.git vendor/shrp
           git clone --depth=1 --single-branch --branch android-9.0 https://github.com/SHRP/android_system_update_engine.git system/update_engine

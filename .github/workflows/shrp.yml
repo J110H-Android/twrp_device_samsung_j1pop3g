@@ -1,0 +1,51 @@
+name: SHRP CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: SHRP Build CI
+    runs-on: ubuntu-18.04
+
+    env:
+      OEM: samsung
+      DEVICE: j1pop3g
+      BRANCH: twrp-6.0
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Installing build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install zip gcc-multilib g++-multilib \
+            libc6-dev-i386 lib32ncurses5-dev lib32z1-dev \
+            libgl1-mesa-dev libxml2-utils xsltproc schedtool axel
+
+      - name: Syncing SHRP sources
+        run: |
+          mkdir ~/SHRP
+          cd ~/SHRP
+          mkdir ~/.bin
+          curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+          python3 ~/.bin/repo init -b ${{ env.BRANCH }} --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git
+          mkdir -p .repo/local_manifests
+          curl https://gist.githubusercontent.com/TriDiscord/6193588530cdbd7c55a0775b70e28bb6/raw > .repo/local_manifests/shrp.xml
+          python3 ~/.bin/repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
+          git clone --branch ${{ env.BRANCH }} --single-branch https://github.com/J110H-Android/twrp_device_${{ env.OEM }}_${{ env.DEVICE }}.git ~/SHRP/device/${{ env.OEM }}/${{ env.DEVICE }}
+
+      - name: Building SHRP
+        run: |
+          cd ~/SHRP
+          source build/envsetup.sh
+          export ALLOW_MISSING_DEPENDENCIES=true
+          export LC_ALL=C
+          lunch omni_${{ env.DEVICE }}-eng
+          make -j$(nproc --all) recoveryimage
+
+      - name: Uploading SHRP builds
+        uses: actions/upload-artifact@v2
+        with:
+          name: shrp
+          path: /home/runner/SHRP/out/target/product/${{ env.DEVICE }}/recovery.img

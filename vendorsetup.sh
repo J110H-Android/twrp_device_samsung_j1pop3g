@@ -14,7 +14,6 @@
 # limitations under the License.
 #
 
-export OF_MAINTAINER="J110H-Android"
 export OF_FL_PATH1="/flashlight"
 export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
 

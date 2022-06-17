@@ -17,7 +17,6 @@
 $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, build/target/product/embedded.mk)
 
-$(call inherit-product, build/target/product/full_base_telephony.mk)
 $(call inherit-product, build/target/product/languages_small.mk)
 
 PRODUCT_DEVICE       := j1pop3g

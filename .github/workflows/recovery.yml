@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  twrp:
-    name: TWRP Builder
+  teamwin:
+    name: TeamWin Recovery Builder
     runs-on: ubuntu-18.04
 
     steps:
-      - name: Installing build dependencies
+      - name: Install build dependencies
         run: |
           sudo apt-get update
           sudo apt-get install zip gcc-multilib g++-multilib \
@@ -17,10 +17,10 @@ jobs:
             libgl1-mesa-dev libxml2-utils xsltproc schedtool
           sudo ln -f -s /usr/bin/python2.7 /usr/bin/python
 
-      - name: Syncing TWRP sources
+      - name: Sync TeamWin Recovery sources
         run: |
-          mkdir ~/TWRP
-          cd ~/TWRP
+          mkdir ~/teamwin
+          cd ~/teamwin
 
           mkdir ~/.bin
           sudo curl http://commondatastorage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/zero
@@ -29,26 +29,26 @@ jobs:
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
           git clone --depth=1 --branch twrp-7.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git ~/TWRP/device/samsung/j1pop3g
 
-      - name: Building TWRP
+      - name: Build TeamWin Recovery
         run: |
-          cd ~/TWRP
+          cd ~/teamwin
           source build/envsetup.sh
           export LC_ALL=C
           lunch omni_j1pop3g-eng
           mka recoveryimage
 
-      - name: Uploading TWRP builds
+      - name: Upload TeamWin Recovery builds
         uses: actions/upload-artifact@v2
         with:
-          name: TWRP_j1pop3g
-          path: /home/runner/TWRP/out/target/product/j1pop3g/recovery.img
+          name: TeamWin_j1pop3g
+          path: /home/runner/teamwin/out/target/product/j1pop3g/recovery.img
   
-  ofrp:
-    name: OFRP Builder
+  orangefox:
+    name: OrangeFox Recovery Builder
     runs-on: ubuntu-18.04
 
     steps:
-      - name: Installing build dependencies
+      - name: Install build dependencies
         run: |
           sudo apt-get update
           sudo apt-get install zip gcc-multilib g++-multilib \
@@ -56,10 +56,10 @@ jobs:
             libgl1-mesa-dev libxml2-utils xsltproc schedtool
           sudo ln -f -s /usr/bin/python2.7 /usr/bin/python
 
-      - name: Syncing OFRP sources
+      - name: Sync OrangeFox Recovery sources
         run: |
-          mkdir ~/OFRP
-          cd ~/OFRP
+          mkdir ~/orangefox
+          cd ~/orangefox
 
           mkdir ~/.bin
           sudo curl http://commondatastorage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/zero
@@ -69,9 +69,9 @@ jobs:
           git clone --depth=1 --branch master --single-branch https://gitlab.com/OrangeFox/misc/theme.git ~/OFRP/bootable/recovery/gui/theme
           git clone --depth=1 --branch twrp-7.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git ~/OFRP/device/samsung/j1pop3g
 
-      - name: Building OFRP
+      - name: Build OrangeFox Recovery
         run: |
-          cd ~/OFRP
+          cd ~/orangefox
           source build/envsetup.sh
           curl https://avatars.githubusercontent.com/u/99538268 --output - > /home/runner/maintainer.png
           convert /home/runner/maintainer.png -resize 192x192 /home/runner/maintainer.png
@@ -82,8 +82,10 @@ jobs:
           lunch omni_j1pop3g-eng
           make -j$(nproc --all) recoveryimage
 
-      - name: Uploading OFRP builds
+      - name: Upload OrangeFox Recovery builds
         uses: actions/upload-artifact@v2
         with:
-          name: OFRP_j1pop3g
-          path: /home/runner/OFRP/out/target/product/j1pop3g/recovery.img
+          name: OrangeFox_j1pop3g
+          path: |
+            /home/runner/orangefox/out/target/product/j1pop3g/recovery.img
+            /home/runner/orangefox/out/target/product/j1pop3g/*.zip

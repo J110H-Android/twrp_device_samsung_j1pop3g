@@ -14,6 +14,7 @@
 # limitations under the License.
 #
 
+export ALLOW_MISSING_DEPENDENCIES=true
 export OF_FL_PATH1="/flashlight"
 export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
 

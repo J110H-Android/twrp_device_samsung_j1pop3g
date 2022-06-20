@@ -23,7 +23,7 @@ TARGET_BOARD_PLATFORM_GPU    := mali-400
 TARGET_CPU_ABI               := armeabi-v7a
 TARGET_CPU_ABI2              := armeabi
 TARGET_ARCH_VARIANT          := armv7-a-neon
-TARGET_CPU_VARIANT           := cortex-a7
+TARGET_CPU_VARIANT           := generic
 TARGET_BOOTLOADER_BOARD_NAME := sc7727s
 BOARD_VENDOR                 := samsung
 

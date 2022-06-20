@@ -25,9 +25,9 @@ jobs:
           mkdir ~/.bin
           sudo curl http://commondatastorage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/zero
           sudo chmod 777 /usr/bin/repo
-          repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-7.1
+          repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
-          git clone --depth=1 --branch twrp-7.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
+          git clone --depth=1 --branch twrp-9.0 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
 
       - name: Build TeamWin Recovery
         run: |
@@ -64,10 +64,10 @@ jobs:
           mkdir ~/.bin
           sudo curl http://commondatastorage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/zero
           sudo chmod 777 /usr/bin/repo
-          repo init --depth=1 -u https://gitlab.com/OrangeFox/Manifest.git -b fox_7.1
+          repo init --depth=1 -u https://gitlab.com/OrangeFox/Manifest.git -b fox_9.0
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
           git clone --depth=1 --branch master --single-branch https://gitlab.com/OrangeFox/misc/theme.git bootable/recovery/gui/theme
-          git clone --depth=1 --branch twrp-7.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
+          git clone --depth=1 --branch twrp-9.0 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
 
       - name: Build OrangeFox Recovery
         run: |

@@ -18,18 +18,18 @@ LOCAL_PATH := device/samsung/j1pop3g
 
 # Platform
 TARGET_ARCH                  := arm
-TARGET_BOARD_PLATFORM        := sc8830
-TARGET_BOARD_PLATFORM_GPU    := mali-400
-TARGET_CPU_ABI               := armeabi-v7a
-TARGET_CPU_ABI2              := armeabi
 TARGET_ARCH_VARIANT          := armv7-a-neon
 TARGET_CPU_VARIANT           := generic
+TARGET_CPU_ABI               := armeabi-v7a
+TARGET_CPU_ABI2              := armeabi
 TARGET_BOOTLOADER_BOARD_NAME := sc7727s
+TARGET_BOARD_PLATFORM        := sc8830
+TARGET_BOARD_PLATFORM_GPU    := mali-400
 BOARD_VENDOR                 := samsung
 
 # Bootloader
-TW_HAS_DOWNLOAD_MODE        := true
 TW_NO_REBOOT_BOOTLOADER     := true
+TW_HAS_DOWNLOAD_MODE        := true
 BOARD_HAS_NO_MISC_PARTITION := true
 
 # Assert

@@ -64,7 +64,18 @@ BOARD_MKBOOTIMG_ARGS   += --tags_offset $(BOARD_TAGS_OFFSET)
 # Recovery
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 
-# TWRP
+# TeamWin Recovery
 TW_THEME                := portrait_hdpi
 TW_INCLUDE_CRYPTO       := true
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone1/temp"
+
+# SkyHawk Recovery
+SHRP_DEVICE_CODE          := j1pop3g
+SHRP_PATH                 := $(LOCAL_PATH)
+SHRP_EXTERNAL             := /external_sd
+SHRP_OTG                  := /usb-otg
+SHRP_FLASH                := 1
+SHRP_REC                  := /dev/block/platform/sprd-sdhci.3/by-name/RECOVERY
+SHRP_CUSTOM_FLASHLIGHT    := true
+SHRP_FONP_1               := /sys/devices/virtual/camera/rear/rear_flash
+SHRP_FLASH_MAX_BRIGHTNESS := 1

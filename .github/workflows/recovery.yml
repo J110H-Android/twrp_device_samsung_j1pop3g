@@ -35,7 +35,7 @@ jobs:
           source build/envsetup.sh
           export LC_ALL=C
           lunch omni_j1pop3g-eng
-          mka recoveryimage
+          make -j$(nproc --all) recoveryimage
 
       - name: Upload TeamWin Recovery builds
         uses: actions/upload-artifact@v2
@@ -120,7 +120,7 @@ jobs:
           source build/envsetup.sh
           export LC_ALL=C
           lunch omni_j1pop3g-eng
-          mka recoveryimage
+          make -j$(nproc --all) recoveryimage
 
       - name: Upload SkyHawk Recovery builds
         uses: actions/upload-artifact@v2
@@ -171,7 +171,7 @@ jobs:
           source build/envsetup.sh
           export LC_ALL=C
           lunch omni_j1pop3g-eng
-          mka recoveryimage
+          make -j$(nproc --all) recoveryimage
 
       - name: Upload PitchBlack Recovery builds
         uses: actions/upload-artifact@v2

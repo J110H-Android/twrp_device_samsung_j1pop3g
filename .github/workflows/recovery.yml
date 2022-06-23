@@ -153,6 +153,18 @@ jobs:
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
           git clone --depth=1 --branch twrp-7.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
 
+          # Broken 7.1 manifest for PitchBlack Recovery, manually sync required dependencies
+          rm -rf external/unzip
+          rm -rf external/zip
+          rm -rf external/bash
+          rm -rf external/nano
+          rm -rf external/libncurses
+          git clone --depth=1 --single-branch --branch cm-14.1 https://github.com/TeamWin/android_external_unzip.git external/unzip
+          git clone --depth=1 --single-branch --branch android-7.1 https://github.com/TeamWin/android_external_zip.git external/zip
+          git clone --depth=1 --single-branch --branch cm-14.1 https://github.com/LineageOS/android_external_bash.git external/bash
+          git clone --depth=1 --single-branch --branch cm-14.1 https://github.com/LineageOS/android_external_nano.git external/nano
+          git clone --depth=1 --single-branch --branch cm-14.1 https://github.com/LineageOS/android_external_libncurses.git external/libncurses
+
       - name: Build PitchBlack Recovery
         run: |
           cd ~/pitchblack

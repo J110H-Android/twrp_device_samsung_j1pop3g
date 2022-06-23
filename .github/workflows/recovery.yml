@@ -159,11 +159,13 @@ jobs:
           rm -rf external/bash
           rm -rf external/nano
           rm -rf external/libncurses
+          rm -rf external/openssh
           git clone --depth=1 --single-branch --branch cm-14.1 https://github.com/TeamWin/android_external_unzip.git external/unzip
           git clone --depth=1 --single-branch --branch android-7.1 https://github.com/TeamWin/android_external_zip.git external/zip
           git clone --depth=1 --single-branch --branch cm-14.1 https://github.com/LineageOS/android_external_bash.git external/bash
           git clone --depth=1 --single-branch --branch cm-14.1 https://github.com/LineageOS/android_external_nano.git external/nano
           git clone --depth=1 --single-branch --branch cm-14.1 https://github.com/LineageOS/android_external_libncurses.git external/libncurses
+          git clone --depth=1 --single-branch --branch cm-14.1 https://github.com/LineageOS/android_external_openssh.git external/openssh
 
       - name: Build PitchBlack Recovery
         run: |

@@ -66,6 +66,11 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 
 # TeamWin Recovery
 TW_THEME                := portrait_hdpi
+TW_EXCLUDE_TZDATA       := false
+TW_EXCLUDE_NANO         := false
+TW_EXCLUDE_BASH         := false
+TW_INCLUDE_FB2PNG       := true
+TW_FORCE_USE_BUSYBOX    := true
 TW_INCLUDE_CRYPTO       := true
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone1/temp"
 

@@ -80,6 +80,3 @@ SHRP_CUSTOM_FLASHLIGHT    := true
 SHRP_FONP_1               := /sys/devices/virtual/camera/rear/rear_flash
 SHRP_FLASH_MAX_BRIGHTNESS := 1
 SHRP_EXPRESS              := true
-
-# PitchBlack Recovery
-PB_TORCH_PATH := /sys/devices/virtual/camera/rear/rear_flash

@@ -126,4 +126,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: SkyHawk_j1pop3g
-          path: /home/runner/skyhawk/out/target/product/j1pop3g/recovery.img
+          path: |
+            /home/runner/skyhawk/out/target/product/j1pop3g/recovery.img
+            /home/runner/skyhawk/out/target/product/j1pop3g/*.zip

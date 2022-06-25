@@ -87,4 +87,5 @@ ifneq ($(wildcard vendor/shrp),)
 	SHRP_FLASH_MAX_BRIGHTNESS := 1
 	SHRP_EXPRESS              := true
 	TW_INCLUDE_FB2PNG         := false
+	TW_FORCE_USE_BUSYBOX      := false
 endif

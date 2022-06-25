@@ -75,7 +75,7 @@ TW_INCLUDE_CRYPTO       := true
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone1/temp"
 
 # SkyHawk Recovery
-ifdef SHRP_DATE
+ifneq ($(wildcard vendor/shrp),)
 	SHRP_DEVICE_CODE          := j1pop3g
 	SHRP_PATH                 := $(LOCAL_PATH)
 	SHRP_EXTERNAL             := /external_sd

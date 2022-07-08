@@ -19,6 +19,9 @@ $(call inherit-product, build/target/product/embedded.mk)
 
 $(call inherit-product, build/target/product/languages_small.mk)
 
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH  := 480
+
 PRODUCT_DEVICE       := j1pop3g
 PRODUCT_NAME         := lineage_j1pop3g
 PRODUCT_BRAND        := samsung

@@ -25,7 +25,7 @@ jobs:
           mkdir ~/.bin
           sudo curl http://commondatastorage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/zero
           sudo chmod 777 /usr/bin/repo
-          repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_lineageos.git -b twrp-14.1
+          repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_lineageos.git -b twrp-14.1
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all) 2>&1
           git clone --depth=1 --branch cm-14.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
 
@@ -64,7 +64,7 @@ jobs:
           mkdir ~/.bin
           sudo curl http://commondatastorage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/zero
           sudo chmod 777 /usr/bin/repo
-          repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_lineageos.git -b twrp-14.1
+          repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_lineageos.git -b twrp-14.1
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all) 2>&1
           git clone --depth=1 --branch cm-14.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
 

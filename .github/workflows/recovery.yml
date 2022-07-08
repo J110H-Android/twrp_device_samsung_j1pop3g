@@ -25,15 +25,16 @@ jobs:
           mkdir ~/.bin
           sudo curl http://commondatastorage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/zero
           sudo chmod 777 /usr/bin/repo
-          repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-7.1
+          repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_lineageos.git -b twrp-14.1
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all) 2>&1
-          git clone --depth=1 --branch twrp-7.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
+          git clone --depth=1 --branch cm-14.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
 
       - name: Build TeamWin Recovery
         run: |
           cd ~/teamwin
           source build/envsetup.sh
           export LC_ALL=C
+          export RECOVERY_VARIANT=twrp
           lunch omni_j1pop3g-eng
           make -j$(nproc --all) recoveryimage
 
@@ -43,8 +44,8 @@ jobs:
           name: TeamWin_j1pop3g
           path: /home/runner/teamwin/out/target/product/j1pop3g/recovery.img
 
-  orangefox:
-    name: OrangeFox Recovery Builder
+  lineage:
+    name: LineageOS Recovery Builder
     runs-on: ubuntu-18.04
 
     steps:
@@ -56,76 +57,28 @@ jobs:
             libgl1-mesa-dev libxml2-utils xsltproc schedtool
           sudo ln -f -s /usr/bin/python2.7 /usr/bin/python
 
-      - name: Sync OrangeFox Recovery sources
+      - name: Sync LineageOS Recovery sources
         run: |
-          mkdir ~/orangefox
-          cd ~/orangefox
+          mkdir ~/lineage
+          cd ~/lineage
           mkdir ~/.bin
           sudo curl http://commondatastorage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/zero
           sudo chmod 777 /usr/bin/repo
-          repo init --depth=1 -u https://gitlab.com/OrangeFox/Manifest.git -b fox_7.1
+          repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_lineageos.git -b twrp-14.1
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all) 2>&1
-          git clone --depth=1 --branch master --single-branch https://gitlab.com/OrangeFox/misc/theme.git bootable/recovery/gui/theme
-          git clone --depth=1 --branch twrp-7.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
+          git clone --depth=1 --branch cm-14.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
 
-      - name: Build OrangeFox Recovery
+      - name: Build LineageOS Recovery
         run: |
-          cd ~/orangefox
-          source build/envsetup.sh
-          curl https://avatars.githubusercontent.com/u/99538268 --output - > /home/runner/maintainer.png
-          convert /home/runner/maintainer.png -resize 192x192 /home/runner/maintainer.png
-          export OF_MAINTAINER="J110H-Android"
-          export OF_MAINTAINER_AVATAR="/home/runner/maintainer.png"
-          export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
-          export LC_ALL=C
-          lunch omni_j1pop3g-eng
-          make -j$(nproc --all) recoveryimage
-
-      - name: Upload OrangeFox Recovery builds
-        uses: actions/upload-artifact@v2
-        with:
-          name: OrangeFox_j1pop3g
-          path: |
-            /home/runner/orangefox/out/target/product/j1pop3g/recovery.img
-            /home/runner/orangefox/out/target/product/j1pop3g/OrangeFox-*.zip
-
-  skyhawk:
-    name: SkyHawk Recovery Builder
-    runs-on: ubuntu-18.04
-
-    steps:
-      - name: Install build dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install zip gcc-multilib g++-multilib \
-            libc6-dev-i386 lib32ncurses5-dev lib32z1-dev \
-            libgl1-mesa-dev libxml2-utils xsltproc schedtool
-          sudo ln -f -s /usr/bin/python2.7 /usr/bin/python
-
-      - name: Sync SkyHawk Recovery sources
-        run: |
-          mkdir ~/skyhawk
-          cd ~/skyhawk
-
-          mkdir ~/.bin
-          sudo curl http://commondatastorage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/zero
-          sudo chmod 777 /usr/bin/repo
-          repo init --depth=1 -u https://github.com/SHRP/manifest.git -b v3_9.0
-          repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all) 2>&1
-          git clone --depth=1 --branch twrp-7.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
-
-      - name: Build SkyHawk Recovery
-        run: |
-          cd ~/skyhawk
+          cd ~/lineage
           source build/envsetup.sh
           export LC_ALL=C
           lunch omni_j1pop3g-eng
           make -j$(nproc --all) recoveryimage
 
-      - name: Upload SkyHawk Recovery builds
+      - name: Upload LineageOS Recovery builds
         uses: actions/upload-artifact@v2
         with:
-          name: SkyHawk_j1pop3g
+          name: LineageOS-Recovery_j1pop3g
           path: |
-            /home/runner/skyhawk/out/target/product/j1pop3g/recovery.img
-            /home/runner/skyhawk/out/target/product/j1pop3g/*.zip
+            /home/runner/lineage/out/target/product/j1pop3g/recovery.img

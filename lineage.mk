@@ -14,13 +14,13 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/cm/config/common_mini.mk)
 $(call inherit-product, build/target/product/embedded.mk)
 
 $(call inherit-product, build/target/product/languages_small.mk)
 
 PRODUCT_DEVICE       := j1pop3g
-PRODUCT_NAME         := omni_j1pop3g
+PRODUCT_NAME         := lineage_j1pop3g
 PRODUCT_BRAND        := samsung
 PRODUCT_MODEL        := SM-J110H
 PRODUCT_MANUFACTURER := samsung

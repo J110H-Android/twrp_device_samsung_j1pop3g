@@ -16,4 +16,4 @@
 
 LOCAL_PATH := device/samsung/j1pop3g
 
-PRODUCT_MAKEFILES := $(LOCAL_PATH)/omni_j1pop3g.mk
+PRODUCT_MAKEFILES += $(LOCAL_PATH)/lineage.mk

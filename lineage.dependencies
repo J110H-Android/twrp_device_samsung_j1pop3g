@@ -1,0 +1,14 @@
+[
+  {
+    "remote": "github",
+    "repository": "TeamWin/android_external_python3",
+    "target_path": "external/python3",
+    "revision": "android-9.0"
+  },
+  {
+    "remote": "github",
+    "repository": "LineageOS/android_external_libtar",
+    "target_path": "external/libtar",
+    "revision": "cm-14.1"
+  }
+]

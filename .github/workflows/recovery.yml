@@ -36,6 +36,8 @@ jobs:
           export LC_ALL=C
           export RECOVERY_VARIANT=twrp
           lunch lineage_j1pop3g-eng
+          repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all) 2>&1
+          lunch lineage_j1pop3g-eng
           make -j$(nproc --all) recoveryimage
 
       - name: Upload TeamWin Recovery builds
@@ -73,6 +75,8 @@ jobs:
           cd ~/lineage
           source build/envsetup.sh
           export LC_ALL=C
+          lunch lineage_j1pop3g-eng
+          repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all) 2>&1
           lunch lineage_j1pop3g-eng
           make -j$(nproc --all) recoveryimage
 

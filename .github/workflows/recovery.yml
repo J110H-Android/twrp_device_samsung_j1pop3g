@@ -27,6 +27,8 @@ jobs:
           sudo chmod 777 /usr/bin/repo
           repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_lineageos.git -b twrp-14.1
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all) 2>&1
+          git clone --depth=1 --branch android-9.0 --single-branch https://github.com/TeamWin/android_external_python3.git external/python3
+          git clone --depth=1 --branch cm-14.1 --single-branch https://github.com/LineageOS/android_external_libtar.git external/libtar
           git clone --depth=1 --branch cm-14.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
 
       - name: Build TeamWin Recovery
@@ -35,8 +37,6 @@ jobs:
           source build/envsetup.sh
           export LC_ALL=C
           export RECOVERY_VARIANT=twrp
-          lunch lineage_j1pop3g-eng
-          repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all) 2>&1
           lunch lineage_j1pop3g-eng
           make -j$(nproc --all) recoveryimage
 
@@ -68,6 +68,8 @@ jobs:
           sudo chmod 777 /usr/bin/repo
           repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_lineageos.git -b twrp-14.1
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all) 2>&1
+          git clone --depth=1 --branch android-9.0 --single-branch https://github.com/TeamWin/android_external_python3.git external/python3
+          git clone --depth=1 --branch cm-14.1 --single-branch https://github.com/LineageOS/android_external_libtar.git external/libtar
           git clone --depth=1 --branch cm-14.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
 
       - name: Build LineageOS Recovery
@@ -75,8 +77,6 @@ jobs:
           cd ~/lineage
           source build/envsetup.sh
           export LC_ALL=C
-          lunch lineage_j1pop3g-eng
-          repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all) 2>&1
           lunch lineage_j1pop3g-eng
           make -j$(nproc --all) recoveryimage
 

@@ -15,17 +15,5 @@
 #
 
 export ALLOW_MISSING_DEPENDENCIES=true
-export OF_FL_PATH1="/flashlight"
-export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
-export FOX_RECOVERY_INSTALL_PARTITION="/dev/block/platform/sprd-sdhci.3/by-name/RECOVERY"
-export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/platform/sprd-sdhci.3/by-name/SYSTEM"
-export FOX_RECOVERY_BOOT_PARTITION="/dev/block/platform/sprd-sdhci.3/by-name/KERNEL"
-export FOX_USE_TAR_BINARY=1
-export FOX_USE_SED_BINARY=1
-export FOX_USE_NANO_EDITOR=1
-export FOX_USE_BASH_SHELL=1
-export FOX_USE_GREP_BINARY=1
-export FOX_USE_XZ_UTILS=1
-export OF_DEVICE_WITHOUT_PERSIST=1
 
-add_lunch_combo omni_j1pop3g-eng
+add_lunch_combo lineage_j1pop3g-eng

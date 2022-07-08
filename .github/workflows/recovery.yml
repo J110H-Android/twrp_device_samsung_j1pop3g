@@ -35,7 +35,7 @@ jobs:
           source build/envsetup.sh
           export LC_ALL=C
           export RECOVERY_VARIANT=twrp
-          lunch omni_j1pop3g-eng
+          lunch lineage_j1pop3g-eng
           make -j$(nproc --all) recoveryimage
 
       - name: Upload TeamWin Recovery builds
@@ -73,7 +73,7 @@ jobs:
           cd ~/lineage
           source build/envsetup.sh
           export LC_ALL=C
-          lunch omni_j1pop3g-eng
+          lunch lineage_j1pop3g-eng
           make -j$(nproc --all) recoveryimage
 
       - name: Upload LineageOS Recovery builds

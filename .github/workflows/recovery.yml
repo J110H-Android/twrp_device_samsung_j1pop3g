@@ -21,7 +21,6 @@ jobs:
         run: |
           mkdir ~/teamwin
           cd ~/teamwin
-
           mkdir ~/.bin
           sudo curl http://commondatastorage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/zero
           sudo chmod 777 /usr/bin/repo
@@ -63,9 +62,8 @@ jobs:
           mkdir ~/.bin
           sudo curl http://commondatastorage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/zero
           sudo chmod 777 /usr/bin/repo
-          repo init --depth=1 -u https://gitlab.com/OrangeFox/Manifest.git -b fox_7.1
+          repo init --depth=1 -u https://github.com/unlegacy-devices/fox-7.1_manifest.git -b twrp-7.1
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all) 2>&1
-          git clone --depth=1 --branch master --single-branch https://gitlab.com/OrangeFox/misc/theme.git bootable/recovery/gui/theme
           git clone --depth=1 --branch twrp-7.1 --single-branch https://github.com/J110H-Android/twrp_device_samsung_j1pop3g.git device/samsung/j1pop3g
 
       - name: Build OrangeFox Recovery
@@ -77,6 +75,8 @@ jobs:
           export OF_MAINTAINER="J110H-Android"
           export OF_MAINTAINER_AVATAR="/home/runner/maintainer.png"
           export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
+          export OF_LEGACY_SHAR512=1
+          export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
           export LC_ALL=C
           lunch omni_j1pop3g-eng
           make -j$(nproc --all) recoveryimage

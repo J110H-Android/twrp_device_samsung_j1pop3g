@@ -13,7 +13,7 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(recovery_ramdisk) $(recovery_u
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
 
 $(LZMA_BOOT_RAMDISK): $(BUILT_RAMDISK_TARGET)
-	gunzip -f < $(BUILT_RAMDISK_TARGET) | lzma -e -v -v > $@
+	gunzip -f < $(BUILT_RAMDISK_TARGET) | lzma -v -v > $@
 
  $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES) $(LZMA_BOOT_RAMDISK)
 	$(call pretty,"Target boot image: $@")
